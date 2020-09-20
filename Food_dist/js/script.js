@@ -44,6 +44,33 @@ function setClock(selector, endtime) {
 
 setClock('.timer', deadline);
 
+const modalTrigger = document.querySelectorAll('[data-modal]'),
+      modal = document.querySelector('.modal'),
+      modalClose = document.querySelector('[data-close]');
 
+
+for( i of modalTrigger){
+    i.addEventListener('click',() => {
+        modal.classList.add('show');
+        modal.classList.remove('hide');
+        // document.body.style.overflow = 'hidden';
+    });
+}
+
+
+modalClose.addEventListener('click', () => {
+    modal.classList.add('hide');
+    modal.classList.remove('show');
+});
+
+modal.addEventListener('click', (e) => {
+    if(e.target == modal) {
+        modal.classList.add('hide');
+        modal.classList.remove('show');
+    }
+})
 // const date =  new Date();
 // console.log(date);
+
+
+
